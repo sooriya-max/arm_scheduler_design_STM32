@@ -235,8 +235,8 @@ An infinite spin in place. SysTick will fire regardless. Any other busy-wait (`b
 
 ## What's Next
 
-- [ ] Implement actual SP swap in `stack_change` to complete the round-robin switch
-- [ ] Add a current-task index variable in `.data` to track which task is active
+- [x] Validate context save/restore — SP swap triggered manually via GDB at `stack_change` breakpoint; correct task entry and register restore confirmed
+- [ ] Encode SP swap inside the ISR — add a `current_task` index in `.data`, load the corresponding stack pointer in `stack_change`, removing the need for manual intervention
 - [ ] Wire UART to print task switch events (visible in QEMU `-serial stdio`)
 - [ ] Port to STM32F4 (Cortex-M4) with FPU lazy stacking awareness
 - [ ] Replace fixed SysTick reload with a configurable tick period (1ms standard)
