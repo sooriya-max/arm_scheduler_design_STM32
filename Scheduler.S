@@ -23,8 +23,6 @@ vector_table:
 
 reset_handler:
 
-    mov r5, #0x0
-
     ldr r0, =systick_csr
     ldr r1, =systick_rvr
     ldr r2, =systick_cvr
